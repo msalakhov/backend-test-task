@@ -9,9 +9,8 @@
     <arg name="extensions" value="php"/>
 
     <rule ref="PSR12"/>
-
-    <file>bin/</file>
-    <file>config/</file>
+    <arg name="parallel" value="80"/>
+    <arg value="nps"/>
     <file>public/</file>
     <file>src/</file>
     <file>tests/</file>

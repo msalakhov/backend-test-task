@@ -64,3 +64,14 @@ create-database-test:
 
 migrate-test:
 	${DC_EXEC} php bin/console doctrine:migration:migrate --env=test --no-interaction
+
+check: cs-fix check-cs stan psalm
+
+cs-fix:
+	${DC_EXEC} vendor/bin/phpcbf
+check-cs:
+	${DC_EXEC} vendor/bin/phpcs
+stan:
+	${DC_EXEC} vendor/bin/phpstan analyze --memory-limit=512m
+psalm:
+	${DC_EXEC} vendor/bin/psalm
