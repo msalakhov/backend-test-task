@@ -68,7 +68,7 @@ migrate-test:
 check: cs-fix check-cs stan psalm
 
 cs-fix:
-	${DC_EXEC} vendor/bin/phpcbf
+	${DC_EXEC} vendor/bin/phpcbf || true
 check-cs:
 	${DC_EXEC} vendor/bin/phpcs
 stan:

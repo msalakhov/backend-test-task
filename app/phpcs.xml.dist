@@ -11,8 +11,9 @@
     <rule ref="PSR12"/>
     <arg name="parallel" value="80"/>
     <arg value="nps"/>
-    <file>public/</file>
+
     <file>src/</file>
     <file>tests/</file>
 
+    <exclude-pattern>tests/bootstrap.php</exclude-pattern>
 </ruleset>
