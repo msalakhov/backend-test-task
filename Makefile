@@ -38,3 +38,29 @@ install: ## Install dependencies.
 success-message:
 	@echo "You can now access the application at http://localhost:8337"
 	@echo "Good luck! 🚀"
+
+refresh: drop-database drop-database-test create-database create-database-test migrate migrate-test fixtures ## recreate and reseed database
+
+drop-database:
+	${DC_EXEC} php bin/console doctrine:database:drop --if-exists --force --no-interaction
+
+create-database:
+	${DC_EXEC} php bin/console doctrine:database:create --no-interaction
+
+create-migration:
+	${DC_EXEC} php bin/console make:migration
+
+migrate:
+	${DC_EXEC} php bin/console doctrine:migrations:migrate --no-interaction
+
+fixtures:
+	${DC_EXEC} php bin/console doctrine:fixtures:load --no-interaction -v
+
+drop-database-test:
+	${DC_EXEC} php bin/console doctrine:database:drop --if-exists --env=test --force --no-interaction
+
+create-database-test:
+	${DC_EXEC} php bin/console doctrine:database:create --no-interaction --env=test
+
+migrate-test:
+	${DC_EXEC} php bin/console doctrine:migration:migrate --env=test --no-interaction
