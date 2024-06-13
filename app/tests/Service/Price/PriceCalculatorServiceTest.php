@@ -156,7 +156,7 @@ class PriceCalculatorServiceTest extends KernelTestCase
         $totalAmount = (new PriceCalculatorService($this->discountService, $this->productRepository, $this->taxService))
             ->calculatePrice((int) $product->getId(), $taxNumber, $discount?->getCode());
 
-        self::assertSame($priceWithDiscountAndTax, $totalAmount);
+        self::assertEquals($priceWithDiscountAndTax, $totalAmount);
     }
 
     public function testCalculatePriceThrowsEntityNotFound(): void

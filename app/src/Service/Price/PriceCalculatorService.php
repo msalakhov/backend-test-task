@@ -19,10 +19,7 @@ class PriceCalculatorService
     ) {
     }
 
-    /**
-     * @return numeric-string
-     */
-    public function calculatePrice(int $product, string $taxNumber, ?string $couponCode): string
+    public function calculatePrice(int $product, string $taxNumber, ?string $couponCode): float
     {
         $price = $this->productRepository->getById($product)->getPrice();
 
@@ -35,6 +32,6 @@ class PriceCalculatorService
 
         $taxAmount = $this->taxService->calculateTaxAmount($priceWithDiscount, $taxNumber);
 
-        return bcadd($priceWithDiscount, $taxAmount, 2);
+        return (float) bcadd($priceWithDiscount, $taxAmount, 2);
     }
 }
