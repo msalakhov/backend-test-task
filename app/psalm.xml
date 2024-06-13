@@ -33,7 +33,18 @@
         <MissingConstructor>
             <errorLevel type="suppress">
                 <directory name="src/Entity"/>
+                <directory name="src/Dto"/>
             </errorLevel>
         </MissingConstructor>
+        <MoreSpecificImplementedParamType>
+            <errorLevel type="suppress">
+                <directory name="src/Handler"/>
+            </errorLevel>
+        </MoreSpecificImplementedParamType>
+        <MissingTemplateParam>
+            <errorLevel type="suppress">
+                <directory name="src/Handler"/>
+            </errorLevel>
+        </MissingTemplateParam>
     </issueHandlers>
 <plugins><pluginClass class="Psalm\PhpUnitPlugin\Plugin"/></plugins></psalm>

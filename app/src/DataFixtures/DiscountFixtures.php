@@ -20,7 +20,7 @@ class DiscountFixtures extends Fixture
 
         for ($i = 1; $i <= self::ITEMS_TO_CREATE; $i++) {
             /** @var numeric-string $amount */
-            $amount = (string) $faker->numberBetween(min: 10, max: 90);
+            $amount = (string) $faker->numberBetween(10, 90);
             $discount = (new Discount())
                 ->setCode(
                     strtoupper(

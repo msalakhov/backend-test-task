@@ -71,7 +71,7 @@ final class PurchaseTest extends WebTestCase
             'couponCode' => $couponCode,
         ];
 
-        $client->request('POST', '/purchase', [], [], $headers, json_encode($data));
+        $client->request('POST', '/purchase', [], [], $headers, (string) json_encode($data));
 
         $response = $client->getResponse();
 
@@ -113,7 +113,7 @@ final class PurchaseTest extends WebTestCase
             'couponCode' => $couponCode,
         ];
 
-        $client->request('POST', '/purchase', [], [], $headers, json_encode($data));
+        $client->request('POST', '/purchase', [], [], $headers, (string) json_encode($data));
 
         $this->assertResponseStatusCodeSame(400);
     }

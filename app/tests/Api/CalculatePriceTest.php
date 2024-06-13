@@ -53,7 +53,7 @@ final class CalculatePriceTest extends WebTestCase
             'couponCode' => $couponCode,
         ];
 
-        $client->request('POST', '/calculate-price', [], [], $headers, json_encode($data));
+        $client->request('POST', '/calculate-price', [], [], $headers, (string) json_encode($data));
 
         $response = $client->getResponse();
 
@@ -99,7 +99,7 @@ final class CalculatePriceTest extends WebTestCase
             'couponCode' => $couponCode,
         ];
 
-        $client->request('POST', '/calculate-price', [], [], $headers, json_encode($data));
+        $client->request('POST', '/calculate-price', [], [], $headers, (string) json_encode($data));
 
         $response = $client->getResponse();
 
@@ -141,7 +141,7 @@ final class CalculatePriceTest extends WebTestCase
             'couponCode' => $wrongCouponCode,
         ];
 
-        $client->request('POST', '/calculate-price', [], [], $headers, json_encode($data));
+        $client->request('POST', '/calculate-price', [], [], $headers, (string) json_encode($data));
 
         $response = $client->getResponse();
 

@@ -27,6 +27,6 @@ final class PurchaseHandler implements ProcessorInterface
             $data->couponCode
         );
 
-        return $this->paymentService->pay($amount, $data->paymentProcessor);
+        return $this->paymentService->pay((string) $amount, $data->paymentProcessor);
     }
 }
